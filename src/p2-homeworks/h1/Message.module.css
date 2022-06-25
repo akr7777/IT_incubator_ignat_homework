@@ -53,13 +53,12 @@
 
 .ava_img_div {
     grid-area: ava_img;
-    background-color: yellow;
+    display: flex;
+    align-items: flex-end;
 }
 .ava_img {
     border-radius: 100px; /* Радиус скругления */
     /*border: 3px solid green;*/ /* Параметры рамки */
-    margin-top: 70%;
-    margin-bottom: 0;
     height: 60px;
     width: 60px;
 }
