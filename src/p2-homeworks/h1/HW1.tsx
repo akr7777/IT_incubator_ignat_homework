@@ -1,26 +1,65 @@
 import React from 'react'
+import Message, {OneMessagePropsType} from "./Message"
+import s from "./Message.module.css"
 
-const messageData = {
-    avatar: 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg',
-    name: 'Some Name',
+const myName = "John Smith";
+const myAvatar = 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg'
+
+type messageData = Array<OneMessagePropsType>
+
+const messageData: messageData = [{
+    avatar: myAvatar,
+    name: myName,
     message: 'some text',
-    time: '22:00',
+    time: '22:00'
+}]
+
+const sendMessage = () => {
+    /*let el = document.getElementById("new_msg_input");
+    if (el) {
+        alert(el.value);
+    }
+    return null;
+
+     */
+    debugger;
+    let newItem = {avatar: myAvatar, name: myName, message: 'some text222', time: '22:00'};
+    messageData.push(newItem);
+    HW1();
 }
 
+
 function HW1() {
+    debugger;
+    let renderingData = messageData.map( (msg:OneMessagePropsType) => {
+        return <Message
+            avatar={msg.avatar}
+            name={msg.name}
+            message={msg.message}
+            time={msg.time}
+        />
+    } );
+    console.log('renderingData=', renderingData)
+
     return (
-        <div>
+        <div className={s.wrapped_div}>
             <hr/>
             homeworks 1
 
-            {/*should work (должно работать)*/}
+            {/*<Message
+                avatar={messageData[0].avatar}
+                name={messageData[0].name}
+                message={messageData[0].message}
+                time={messageData[0].time}
+            />*/}
 
-            {/*<Message*/}
-            {/*    avatar={messageData.avatar}*/}
-            {/*    name={messageData.name}*/}
-            {/*    message={messageData.message}*/}
-            {/*    time={messageData.time}*/}
-            {/*/>*/}
+            {renderingData}
+
+            <div className={s.new_msg_input_area}>
+                <label>New message:</label>
+                <textarea className={s.input_new_msg} id="new_msg_input"/>
+                <button className={s.new_msg_input_btn} onClick={sendMessage}>SEND</button>
+            </div>
 
             <hr/>
             {/*для личного творчества, могу проверить*/}

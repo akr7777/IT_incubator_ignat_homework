@@ -1,3 +1,89 @@
-.message {
 
+:root {
+    --rw-col1: #b9b5b5; /*Фон самого сообщения*/
+    --rw-col2: #bebebe;
+    --rw-col3: #095e51;
+    --rw-col4: rgba(230, 221, 212, 0);/* фон враппера для сообщения. Полная прозрачность*/
+    --rw-col5: #000;
+    --rw-col6: #4fce5d;
 }
+
+.wwatchat {padding: 20px; background: var(--rw-col4);}
+.wwatchat > div {padding: 7px 14px 6px; background:var(--rw-col1);border-radius: 8px 8px 8px 8px;	position: relative;}
+/*
+.wwatchat > div::before {content:""; display:block; width: 0; height: 0; position:absolute; top:0; left:-7px; border-left: 8px solid transparent;border-right: 8px solid transparent;border-top: 16px solid var(--rw-col1);}
+*/
+.wwatchat > div::before {content:""; display:block; width: 0; height: 0; position:absolute; bottom:0; left:-20px; border-left: 21px solid transparent;border-right: 21px solid transparent;border-bottom: 16px solid var(--rw-col1);}
+/*.wwatchat u {color: var(--rw-col2); font-weight: 900; display:block; margin-bottom: 5px;}
+.wwatchat p {color: var(--rw-col5); font-size: 13px;}*/
+
+
+.wrapped_div {
+    margin: 20px;
+}
+
+/*input[type=text] {*/
+.input_new_msg {
+    width: 40%;
+    height: 150px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+/*input[type=text]:focus {*/
+.input_new_msg:focus {
+    background-color: lightblue;
+}
+.new_msg_input_area {
+    display: flex;
+    flex-direction: column;
+}
+.new_msg_input_btn {
+    width: 130px;
+    height: 40px;
+}
+
+.message {
+    /*background-color: #cec6c6;*/
+    display: flex;
+    /*grid-template-columns: "";*/
+}
+
+.ava_img_div {
+    grid-area: ava_img;
+    background-color: yellow;
+}
+.ava_img {
+    border-radius: 100px; /* Радиус скругления */
+    /*border: 3px solid green;*/ /* Параметры рамки */
+    margin-top: 70%;
+    margin-bottom: 0;
+    height: 60px;
+    width: 60px;
+}
+
+.msg_div {
+    grid-area: msg_div;
+    /*text-align: left;*/
+    /*color: #800017;
+    background-color: royalblue;*/
+}
+
+.name {
+    font-size: 20px;
+    color: darkgreen;
+}
+.text {
+    font-size: 16px;
+    color: black;
+}
+.time {
+    font-size: 14px;
+    color: darkgreen;
+    text-align: end;
+}
+
+
+
