@@ -15,14 +15,6 @@ const messageData: messageData = [{
 }]
 
 const sendMessage = () => {
-    /*let el = document.getElementById("new_msg_input");
-    if (el) {
-        alert(el.value);
-    }
-    return null;
-
-     */
-    debugger;
     let newItem = {avatar: myAvatar, name: myName, message: 'some text222', time: '22:00'};
     messageData.push(newItem);
     HW1();
@@ -30,7 +22,6 @@ const sendMessage = () => {
 
 
 function HW1() {
-    debugger;
     let renderingData = messageData.map( (msg:OneMessagePropsType) => {
         return <Message
             avatar={msg.avatar}
