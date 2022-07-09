@@ -1,28 +1,35 @@
-import React from 'react'
+import React, {ChangeEvent, useState} from 'react'
 import Message, {OneMessagePropsType} from "./Message"
 import s from "./Message.module.css"
 
-const myName = "John Smith";
+
 const myAvatar = 'https://sun9-74.userapi.com/Ph-WiuOtF985il9AvN9JqiCWedmHtSGSSTXrSA/ltEB2Z2-YO4.jpg'
+const myName = "John Smith";
 
-type messageData = Array<OneMessagePropsType>
-
-const messageData: messageData = [{
+const messageDataInitialState: OneMessagePropsType[] = [{
     avatar: myAvatar,
     name: myName,
     message: 'some text',
     time: '22:00'
 }]
 
-const sendMessage = () => {
-    let newItem = {avatar: myAvatar, name: myName, message: 'some text222', time: '22:00'};
-    messageData.push(newItem);
-    HW1();
-}
-
 
 function HW1() {
-    let renderingData = messageData.map( (msg:OneMessagePropsType) => {
+
+    const [messages, setMessages] = useState<OneMessagePropsType[]>(messageDataInitialState);
+    const [newMsgTitle, setNewMsgTitle] = useState<string>('')
+
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        setNewMsgTitle(e.currentTarget.value)
+    }
+
+    const sendMessage = () => {
+        let newMsgItem:OneMessagePropsType = {avatar: myAvatar, name: myName, message: newMsgTitle, time: '22:00'};
+        setMessages([...messages, newMsgItem])
+        setNewMsgTitle('')
+    }
+
+    let renderingData = messages.map( (msg:OneMessagePropsType) => {
         return <Message
             avatar={msg.avatar}
             name={msg.name}
@@ -30,7 +37,7 @@ function HW1() {
             time={msg.time}
         />
     } );
-    console.log('renderingData=', renderingData)
+    //console.log('renderingData=', renderingData)
 
     return (
         <div className={s.wrapped_div}>
@@ -48,7 +55,7 @@ function HW1() {
 
             <div className={s.new_msg_input_area}>
                 <label>New message:</label>
-                <textarea className={s.input_new_msg} id="new_msg_input"/>
+                <textarea className={s.input_new_msg} id="new_msg_input" value={newMsgTitle} onChange={(e) => onChangeHandler(e) }/>
                 <button className={s.new_msg_input_btn} onClick={sendMessage}>SEND</button>
             </div>
 
