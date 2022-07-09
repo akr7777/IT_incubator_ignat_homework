@@ -26,7 +26,6 @@ function HW1() {
     const sendMessage = () => {
         let today = new Date();
         let currentTime:string = today.getHours().toString() + ":" + today.getMinutes().toString()
-
         let newMsgItem:OneMessagePropsType = {avatar: myAvatar, name: myName, message: newMsgTitle, time: currentTime};
 
         setMessages([...messages, newMsgItem])
