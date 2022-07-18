@@ -12,7 +12,7 @@ function Message(props: OneMessagePropsType) {
     return (
         <div className={s.message}>
             <div className={s.ava_img_div}>
-                <img alt="ttt" src={props.avatar} className={s.ava_img}/>
+                rrr
             </div>
             <div className={s.wwatchat}> {/*s.msg_div*/}
                 <div>
