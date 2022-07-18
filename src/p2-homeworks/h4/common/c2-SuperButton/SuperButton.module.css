@@ -1,7 +1,22 @@
 .default {
+    width: 180px;
+    height: 40px;
+    background-color: aliceblue;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: "Comic Sans MS";
+}
 
+.default:hover {
+    background-color: #555555;
 }
 
 .red {
+    width: 180px;
+    height: 40px;
+    border: black 3px solid;
     background: red;
+    font-weight: bold;
+    font-size: 19px;
+    font-family: "Noto Sans Meetei Mayek";
 }

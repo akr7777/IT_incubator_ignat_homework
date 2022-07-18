@@ -1,3 +1,7 @@
+.wrapped_div {
+    margin-left: 30px;
+}
+
 .blue {
     border-bottom: 5px solid blue;
 }
