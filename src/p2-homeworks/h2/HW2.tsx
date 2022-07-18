@@ -48,7 +48,7 @@ function HW2() {
     return (
         <div className={s.wrapped_div}>
             <hr/>
-            homeworks 2
+            homeworks 2 gfgfgfjds
 
             <div className={s.affairs_div}>
                 <Affairs
